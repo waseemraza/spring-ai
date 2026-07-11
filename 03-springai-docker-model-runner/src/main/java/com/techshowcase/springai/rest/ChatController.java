@@ -1,4 +1,4 @@
-package com.learning.springai.rest;
+package com.techshowcase.springai.rest;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.messages.SystemMessage;

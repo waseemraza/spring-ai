@@ -1,4 +1,4 @@
-package com.learning.springai.config;
+package com.techshowcase.springai.config;
 
 //@Configuration
 public class ChatConfig {
