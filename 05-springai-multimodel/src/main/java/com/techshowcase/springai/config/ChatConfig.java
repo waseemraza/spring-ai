@@ -1,4 +1,4 @@
-package com.learning.springai.config;
+package com.techshowcase.springai.config;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.ollama.OllamaChatModel;

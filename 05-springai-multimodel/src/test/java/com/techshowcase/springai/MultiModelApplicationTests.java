@@ -1,4 +1,4 @@
-package com.learning.springai;
+package com.techshowcase.springai;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
