@@ -1,5 +1,8 @@
 # Getting Started
 
+This application is to demonstrate how to use springai with ollama and chat with models
+running locally with ollama.
+
 ### Install ollama locally
 ```curl -fsSL https://ollama.com/install.sh | sh```
 
