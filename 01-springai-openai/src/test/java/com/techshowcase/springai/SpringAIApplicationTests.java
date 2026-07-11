@@ -1,10 +1,10 @@
-package com.techshowcase.springai01_openai;
+package com.techshowcase.springai;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Springai01OpenaiApplicationTests {
+class SpringAIApplicationTests {
 
 	@Test
 	void contextLoads() {

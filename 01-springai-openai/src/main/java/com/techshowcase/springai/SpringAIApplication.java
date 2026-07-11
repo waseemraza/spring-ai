@@ -1,13 +1,13 @@
-package com.techshowcase.springai01_openai;
+package com.techshowcase.springai;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Springai01OpenaiApplication {
+public class SpringAIApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Springai01OpenaiApplication.class, args);
+		SpringApplication.run(SpringAIApplication.class, args);
 	}
 
 }

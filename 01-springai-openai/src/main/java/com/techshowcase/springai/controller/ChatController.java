@@ -1,4 +1,4 @@
-package com.techshowcase.springai01_openai.controller;
+package com.techshowcase.springai.controller;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.messages.SystemMessage;
