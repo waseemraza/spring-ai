@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: 05-springai-multimodel
+  ai:
+    # Normally springboot instantiate ChatClient builder based on the model library in class path.
+    # But in case of multi-model, we should disable this feature. Otherwise, sprinboot will not know which ChatClient should be created as primary bean.
+    # We should disable auto-chatclient configuration. Configure Beans explicitly based on the chatclients we want.
+    chat:
+      client:
+        enabled: false
+    openai:
+      api-key: ${OPEN_AI_KEY}
+    ollama:
+      chat:
+        model: llama3.2:1b

@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: 02-springai-ollama
+  ai:
+    model:
+      chat: ollama
+    ollama:
+      chat:
+        model: llama3.2:1b
+      # default url for ollama server. Mentioning it for learning.
+      base-url: http://localhost:11434
