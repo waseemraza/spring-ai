@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: 06-springai-default-message
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        model: gpt-5-nano # check pricing of different models https://developers.openai.com/api/docs/pricing
+      #chat.model:gpt-3.5-turbo
