@@ -35,11 +35,11 @@ public class ChatControllerWithDefault {
 
     /**
      * This method demonstrate how to override default message of the system.
-     * @param userQuery
+     * @param userPrompt
      * @return
      */
     @GetMapping("/chat/default-override")
-    public String chatDefaultOverride(@RequestParam("userQuery") final String userQuery) {
+    public String chatDefaultOverride(@RequestParam("userPrompt") final String userPrompt) {
         return chatClient
                 .prompt()
                 .system("""
@@ -47,7 +47,7 @@ public class ChatControllerWithDefault {
                         related queries only. If you get query not related to cricket then
                         let the user know that they should ask only cricket related questions only.
                        """)
-                .user(userQuery)
+                .user(userPrompt)
                 .call()
                 .content();
     }

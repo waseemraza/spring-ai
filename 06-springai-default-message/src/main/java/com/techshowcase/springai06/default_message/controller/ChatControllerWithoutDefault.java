@@ -27,11 +27,11 @@ public class ChatControllerWithoutDefault {
      * <p>
      * Refer {@link ChatControllerWithDefault} controller on how to use default methods.
      *
-     * @param userQuery
+     * @param userPrompt
      * @return
      */
-    @GetMapping("/chat")
-    public String chat(@RequestParam("userQuery") final String userQuery) {
+    @GetMapping("/chat/without-default")
+    public String chat(@RequestParam("userPrompt") final String userPrompt) {
 
         final String systemMessageStr = """
                 You are a sports expert. You will answer the question related to sports only.
@@ -49,7 +49,7 @@ public class ChatControllerWithoutDefault {
 
         // OPTION 2: Using Prompt object
         final SystemMessage systemMessage = new SystemMessage(systemMessageStr);
-        final UserMessage userMessage = new UserMessage(userQuery);
+        final UserMessage userMessage = new UserMessage(userPrompt);
         final Prompt prompt = new Prompt(List.of(systemMessage, userMessage));
 
         return chatClient.prompt(prompt)
