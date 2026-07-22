@@ -20,7 +20,7 @@ public class ChatControllerWithDefault {
                 """;
 
         this.chatClient = chatClientBuilder
-                .defaultSystem(systemMessage)
+                .defaultSystem(systemMessage) // Use of defaultSystem() method here
                 .build();
     }
 
