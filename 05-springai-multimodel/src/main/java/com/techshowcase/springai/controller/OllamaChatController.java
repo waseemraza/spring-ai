@@ -1,4 +1,4 @@
-package com.techshowcase.springai.rest;
+package com.techshowcase.springai.controller;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/openai")
-public class OpenAiChatController {
+@RequestMapping("/api/ollama")
+public class OllamaChatController {
 
-    private final ChatClient openAiChatClient;
+    private final ChatClient ollamaChatClient;
 
-    public OpenAiChatController(@Qualifier("openAiChatClient") ChatClient openAiChatClient) {
-        this.openAiChatClient = openAiChatClient;
+    public OllamaChatController(@Qualifier("ollamaChatClient") ChatClient ollamaChatClient) {
+        this.ollamaChatClient = ollamaChatClient;
     }
-
+    
     @GetMapping("/chat")
     public String chat(@RequestParam("message") final String message) {
-        return openAiChatClient.prompt(message).call().content();
+        return ollamaChatClient.prompt(message).call().content();
     }
 }

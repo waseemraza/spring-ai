@@ -1,4 +1,4 @@
-package com.techshowcase.springai.rest;
+package com.techshowcase.springai.controller;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.web.bind.annotation.GetMapping;

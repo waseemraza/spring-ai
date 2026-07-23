@@ -1,4 +1,4 @@
-package com.techshowcase.springai.rest;
+package com.techshowcase.springai.controller;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,6 @@ public class ChatController {
     @GetMapping("/chat")
     public String chat(@RequestParam String message) {
         return chatClient.prompt()
-//                .advisors()  // you can use advisors during prompt creation also.
                 .user(message)
                 .call()
                 .content();

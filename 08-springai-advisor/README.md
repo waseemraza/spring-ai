@@ -1,13 +1,11 @@
-This application is to demonstrate how to use Advisors.
+This application demonstrates how to use ***Advisors***.
 
-Advisor behaves similar to interceptor. It helps in dealing with cross-cutting concerns.
-It allows:
-- pre-processing or post-processing of prompt data.
-- injecting additional behavior without modifying the core logic.
-- chaining of multiple behaviors.
+An advisor works like an interceptor and helps handle cross-cutting concerns. It allows you to:
+- pre-process or post-process prompt data.
+- inject additional behavior without changing the core logic.
+- chain multiple behaviors together.
 
-Spring AI provides number of inbuilt advisors, such as SimpleLoggerAdvisor or SafeGuardAdvisor.
-An advisor implements CallAdvisor, StreamAdvisor. We can create a custom advisor and that should
-implement CallAdvisor and StreamAdvisor.
+Spring AI ships with several built-in advisors, such as `SimpleLoggerAdvisor` and `SafeGuardAdvisor`.
+Every advisor implements `CallAdvisor` and `StreamAdvisor`, so a custom advisor must implement both.
 
-SafeGuardAdvisor blocks a request if the prompt contains any of the pre-defined list of sensitive words.
+`SafeGuardAdvisor` blocks a request when the prompt contains any word from a predefined list of sensitive words.
