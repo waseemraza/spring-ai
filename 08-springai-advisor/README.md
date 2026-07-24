@@ -10,6 +10,15 @@ Every advisor implements `CallAdvisor` and `StreamAdvisor`, so a custom advisor 
 
 `SafeGuardAdvisor` blocks a request when the prompt contains any word from a predefined list of sensitive words.
 
+#### Custom Advisor
+
+A ***custom advisor*** implements `CallAdvisor` (for synchronous calls) or `StreamAdvisor` (for streaming).
+Inside `adviseCall`, you call `chain.nextCall(request)` to continue the chain, and wrap that call with your
+own logic before and/or after it. `getOrder()` controls its position in the chain (lower runs first).
+
+This app includes `TokenUtilizationAdvisor`, a custom `CallAdvisor` that reads the token `Usage` from the
+model's response metadata and logs it — a simple post-processing example.
+
 ###### Example:
 ```localhost:8080/chat?message=I have used 5 leaves. how many leave I am left with?```
 
