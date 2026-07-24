@@ -17,7 +17,7 @@ public class ChatController {
     @GetMapping("/chat")
     public String chat(@RequestParam String message) {
         return chatClient.prompt()
-//                .advisors()  // you can use advisors during prompt creation also.
+//                .advisors()  // you can use advisors during prompt creation here.
                 .user(message)
                 .call()
                 .content();

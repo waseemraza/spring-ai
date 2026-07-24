@@ -1,9 +1,12 @@
 package com.techshowcase.springai.config;
 
+import com.techshowcase.springai.advisors.TokenUtilizationAdvisor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.List;
 
 @Configuration
 public class ClientConfig {
@@ -16,11 +19,12 @@ public class ClientConfig {
                 only with sports related queries.
                 """;
 
-        // SimpleLoggerAdvisor - A simple logger advisor that logs the request and response messages.
+        // SimpleLoggerAdvisor - A spring provided simple logger advisor that logs the request and response messages.
         // SimpleLoggerAdvisor logs the request and response only in DEBUG mode.
-        // It's also possible not to use defaultAdvisors() but with the prompt itself.
+        //
+        // TokenUtilizationAdvisor - It's a custom advisor that gives the detail about token usage.
         return chatClientBuilder
-                .defaultAdvisors(new SimpleLoggerAdvisor())
+                .defaultAdvisors(List.of(new SimpleLoggerAdvisor(), new TokenUtilizationAdvisor()))
                 .defaultSystem(systemMessage)
                 .build();
     }

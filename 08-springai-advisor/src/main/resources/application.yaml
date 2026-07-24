@@ -3,11 +3,8 @@ spring:
     name: 08-springai-advisor
   ai:
     openai:
+      api-key: ${OPENAI_API_KEY}
       chat:
-        model: ai/smollm2
-      base-url: http://localhost:12434/engines/v1
-      # To use local running models, spring team has decided to use the same api as for openai.
-      # So a dummy api-key is needed by the api.
-      api-key: dummy
+        model: gpt-5-nano
 
 logging.level.org.springframework.ai.chat.client.advisor: DEBUG
