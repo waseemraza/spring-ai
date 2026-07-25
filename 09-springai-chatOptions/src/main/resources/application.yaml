@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: 09-springai-chatOptions
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+
+logging.level.org.springframework.ai.chat.client.advisor: DEBUG
