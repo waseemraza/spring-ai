@@ -9,7 +9,7 @@
     - `MapOutputConverter` → Map<String, Object>
     - `ListOutputConverter` → List<T>
 
-Below is the log message when you trigger the api ```/chat?message=give 10 major citiies of the netherlands```.
+Below is the log message when you trigger the api ```/chat-bean?message=give 10 major citiies of the netherlands```.
 Note that from entity class (CountryCities), LLM understand that the response should be given back in json format
 which should adhere to the structure of CountryCities.
 
