@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,30 @@ public class ChatController {
     @GetMapping("/chat")
     public String chat(@RequestParam("message") final String message) {
         return chatClient.prompt(message).call().content();
+    }
+
+    /**
+     * Streaming variant of {@link #chat(String)}.
+     *
+     * <p>{@code call()} is blocking — it waits for the model to finish generating and then returns the
+     * whole answer as a {@code String}. {@code stream()} instead returns a {@code Flux<String>} that
+     * emits each chunk (token) as soon as the model produces it, so the user starts reading the answer
+     * while it is still being generated.
+     *
+     * <p>Note: this endpoint cannot be tried from Postman — it buffers the response and shows it only
+     * once the stream completes, which hides the streaming effect. Open it in a browser instead
+     * (e.g. {@code localhost:8080/stream?message=Tell me a story}), as the browser renders the chunks
+     * as they arrive.
+     *
+     * @param message the user prompt
+     * @return the assistant's answer, emitted chunk by chunk
+     */
+    @GetMapping("/stream")
+    public Flux<String> stream(@RequestParam String message) {
+        return chatClient.prompt()
+                .user(message)
+                .stream()
+                .content();
     }
 
     /**
